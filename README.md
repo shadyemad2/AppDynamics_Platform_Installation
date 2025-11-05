@@ -1,4 +1,4 @@
-# AppDynamics Platform Installation (LINUX)
+# AppDynamics On-Prem Installation
 
 ## Description
 
