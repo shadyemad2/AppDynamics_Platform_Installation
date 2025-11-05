@@ -101,7 +101,8 @@ Reference: [Enterprise Console Documentation](https://docs.appdynamics.com/appd/
    Password: shadyemad
    ```
 
-   ![Enterprise Console Login](https://github.com/sherifadel90/AppDynamicsPlatformInstallation/blob/master/assets/images/02-EnterpriseConsoleLogin.png)
+   <img width="3360" height="1952" alt="02-EnterpriseConsoleLogin" src="https://github.com/user-attachments/assets/4382d833-7cf8-40c1-b5ed-46c08b7830ec" />
+
 
 ---
 
