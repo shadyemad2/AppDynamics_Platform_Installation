@@ -30,8 +30,12 @@ The software versions used in the lab are the most recent generally available at
 ### Step 2: Enterprise Console Requirements
 
 The Enterprise Console can run on the same host as the Controller and the embedded Events Service. If this is the case, the machine you choose to run the Enterprise Console must meet the requirements for all the components that run on that machine.
-
-1. We will need to install these required libraries
+1. we wiil need to install Java
+        <pre><code>
+        yum install java-17-openjdk java-17-openjdk-devel -y
+        <pre><code>
+        
+3. We will need to install these required libraries
         <pre><code>
         yum install libaio
         yum install numactl
@@ -45,7 +49,8 @@ The Enterprise Console can run on the same host as the Controller and the embedd
     * Open file descriptor limit (nofile): 65535
     * Process limit (nproc): 65535
 
-    Following the steps in [Configure User Limits in Linux Controllers](https://docs.appdynamics.com/display/latest/Prepare+Linux+for+the+Controller#PrepareLinuxfortheController-configure_in_linuxConfigureUserLimitsinLinux):
+    Following the steps in [Configure User Limits in Linux Controllers]
+    (https://docs.appdynamics.com/appd/onprem/24.x/24.4/en/plan-your-deployment/physical-machine-controller-deployment-guide/prepare-the-controller-host/prepare-linux-for-the-controller):
         <pre><code>
         vi /etc/security/limits.d/appdynamics.conf
         </code></pre>
@@ -62,7 +67,8 @@ The Enterprise Console can run on the same host as the Controller and the embedd
 
 In this exercise, you will be setting up the Enterprise Console.  This utility provides a browser-based user interface that allows an AppDynamics administrator to install and manage the Controller and Events Service components of the AppDynamics platform.  A CLI for the Enterprise Console is available, but is outside the scope of this lab.
 
-Reference documentation can be found on the AppDynamics documents site - [Enterprise Console Documentation](https://docs.appdynamics.com/display/latest/Enterprise+Console).
+Reference documentation can be found on the AppDynamics documents site - [Enterprise Console Documentation]
+(https://docs.appdynamics.com/appd/onprem/24.x/24.4/en/enterprise-console).
 
 1. Download and copy the Platform Admin Installer Script to the lab host.
    Log into / Register on https://accounts.appdynamics.com to download the "Enterprise Console - 64-bit Linux(sh)"
@@ -74,25 +80,30 @@ Reference documentation can be found on the AppDynamics documents site - [Enterp
         <pre><code>
         chmod a+x platform-setup-x64-linux-20.x.x.x.sh
         </code></pre>
+<img width="999" height="552" alt="run script on cli" src="https://github.com/user-attachments/assets/093d962c-8e4e-4fcf-a6b1-a00a9fa06737" />
 
 4. Install the Platform Admin software:
         <pre><code>
         sudo su
         ./platform-setup-x64-linux-20.x.x.x.sh
         </code></pre>
-    with inputing the below
-        <pre><code>
-        I accept the agreement: 1
-        Where should AppDynamics Enterprise Console be installed?: /opt/appdynamics/platform
-        Database Root User Password: AppD123
-        Database Port: 3377 (default)
-        Enterprise Console Database Password: AppD123
-        Enable Https Connection: n
-        Enterprise Console Host Name: In case of AWS, Enter the public DNS name of the lab EC2 instance
-        Enterprise Console Port: 9191 (default)
-        Enterprise Console Root User Name: admin (default)
-        Enterprise Console Root User Password: AppD123
-        </code></pre>
+    step 1
+    <img width="1967" height="908" alt="enterprise 1" src="https://github.com/user-attachments/assets/13f9d154-058d-4555-b0e3-e879fd20fbe2" />
+    step 2
+    <img width="997" height="912" alt="enterprise 2" src="https://github.com/user-attachments/assets/95c1d9b3-a059-4669-957d-6ce1911e5504" />
+    step 3
+    <img width="1000" height="905" alt="enterprise 3" src="https://github.com/user-attachments/assets/4503519f-deec-4715-ab45-9da8dade287d" />
+    step 4
+    <img width="996" height="896" alt="enterprise 4" src="https://github.com/user-attachments/assets/bdf6f38d-8f30-442a-92ea-0fb8541f051c" />
+    step 5
+    <img width="1002" height="906" alt="enterprise 5" src="https://github.com/user-attachments/assets/f38a5f6e-cb36-4ddf-8a32-3dac0fa0b97f" />
+    step 6
+    <img width="998" height="908" alt="enterprise 6" src="https://github.com/user-attachments/assets/162a8adc-607a-4b08-8ca5-cb9512c18853" />
+    step 7
+    <img width="998" height="904" alt="enterprise 7" src="https://github.com/user-attachments/assets/eb7f73fe-33b9-4230-8777-58cc21f8ba4b" />
+    step 8
+    <img width="992" height="901" alt="enterprise 8" src="https://github.com/user-attachments/assets/97a76d6d-2ec0-40b3-beb6-ba88dd7afa18" />
+
     After a few minutes, you should see output similar to that shown below...
         <pre><code>
         Setup has finished installing AppDynamics Enterprise Console on your computer.
@@ -101,7 +112,7 @@ Reference documentation can be found on the AppDynamics documents site - [Enterp
         Finishing installation ...
         </code></pre>
 
-5. To confirm the Enterprise Console is functioning properly, verify you can connect to its URL in a web browser and authenticate using the information specified in the installation (Username: admin, Password: AppD123)
+6. To confirm the Enterprise Console is functioning properly, verify you can connect to its URL in a web browser and authenticate using the information specified in the installation (Username: admin, Password: shadyemad)
         <pre><code>
         http://[your-ip-address]:[EnterpriseConsolePort]
         </code></pre>
@@ -115,16 +126,17 @@ The Controller provides the main AppDynamics GUI which is backed by a MySQL data
 Installation of both components can be accomplished using the CLI, but that procedure is beyond the scope of this lab.
 Also note that the lab focuses on installation and configuration procedures in a learning environment, but you should be aware that additional steps may be necessary to address security, performance, availability, and scalability considerations in a production deployment.
 
-Reference documentation can be found on the AppDynamics web site - [Controller Documentation](https://docs.appdynamics.com/display/latest/Controller+Deployment) and [Events Service Documentation](https://docs.appdynamics.com/display/latest/Events+Service+Deployment).
+Reference documentation can be found on the AppDynamics web site - [Controller Documentation](https://docs.appdynamics.com/appd/onprem/24.x/24.4/en/controller-deployment) and [Events Service Documentation](https://docs.appdynamics.com/appd/onprem/24.x/24.4/en/events-service-deployment).
 
 1. From the Enterprise Console UI, select the Install tab and click the Express Install type.
-<img src="https://github.com/sherifadel90/AppDynamicsPlatformInstallation/blob/master/assets/images/03-ExpressInstall-Step.png" width="600">
+<img width="1516" height="810" alt="install platform 3" src="https://github.com/user-attachments/assets/82d9404f-5467-4395-89b6-e68865058620" />
 
 2. In the **Name the Platform** section, Provide a name of your choice for the platform and confirm the default **Installation Path** value is a subdirectory of the installation directory we specified earlier.
-<img src="https://github.com/sherifadel90/AppDynamicsPlatformInstallation/blob/master/assets/images/04-NamePlatform-section.png" width="600">
+<img width="1516" height="813" alt="install platform 1" src="https://github.com/user-attachments/assets/5c192976-0309-4650-9393-d362df719b02" />
 
 3. In the **Add a Host** section, choose Use **Enterprise Console Host**.
-<img src="https://github.com/sherifadel90/AppDynamicsPlatformInstallation/blob/master/assets/images/05-AddHost-section.png" width="600">
+<img width="1515" height="814" alt="install platform 2" src="https://github.com/user-attachments/assets/a658bc35-0037-41f2-b4d1-453b66376b9b" />
+
 
 4. In the **Install the Controller** section:
         - Select the **Demo profile**
@@ -132,146 +144,19 @@ Reference documentation can be found on the AppDynamics web site - [Controller D
         - Set the Controller **Admin Password** to **welcome1**
         - Set the Controller Controller Root User Password to **welcome1**
         - Set Database Root Password to **welcome1**
-        <img src="https://github.com/sherifadel90/AppDynamicsPlatformInstallation/blob/master/assets/images/06-InstallController-section.png" width="600">
+        <img width="1513" height="811" alt="install platform 4 1" src="https://github.com/user-attachments/assets/fe6edb88-4d13-4117-8c78-49f058a41256" />
+
 
 5. Click the **Submit** button, The installation will begin immediately but it may take a few minutes before the jobs appear and begin reporting their progress on the page.
-<img src="https://github.com/sherifadel90/AppDynamicsPlatformInstallation/blob/master/assets/images/07-JobsStarting.png" width="600">
 
 6. After the jobs have completed successfully (up to 15 minutes), click the Controller and Events Service sections to make sure each shows a health state of Normal.
-<img src="https://github.com/sherifadel90/AppDynamicsPlatformInstallation/blob/master/assets/images/08-JobsFinished.png" width="600">
+<img width="1513" height="815" alt="running jobs" src="https://github.com/user-attachments/assets/21d4afcb-a434-4bd0-9ec5-fcd098a85a5a" />
 
 7. To confirm the Controller is running properly, verify you can connect to its URL in a web browser and authenticate using the information specified in **Step 4** (Username: admin, Password: welcome1)
         <pre><code>
         http://[your-ip-address]:8090
         </code></pre>
-        <img src="https://github.com/sherifadel90/AppDynamicsPlatformInstallation/blob/master/assets/images/09-ControllerLogin.png" width="600">
-
-8. Ping the Events Service API port in a browser.  A successful “pong” response confirms the service is running properly.
-        <pre><code>
-        http://[your-ip-address]:9080/_ping
-        </code></pre>
-        <img src="https://github.com/sherifadel90/AppDynamicsPlatformInstallation/blob/master/assets/images/10-EventsPing.png" width="600">
-
-9. Deploy the provided license by coping your license file (.lic) to the controller directory at **/opt/appd/platform/product/controller/**
-
-10. In the Controller UI, confirm the new license has been applied by navigating to the Settings icon (⚙) in the upper right corner of the page and selecting License.  Make sure the the license details now show it as a Pro Trial edition and includes entitlements for different agents.
-Note: If the licenses are not reflected as below in 10 minutes, perform a Controller Restart (Without database restart) from the Platform Admin.
-<img src="https://github.com/sherifadel90/AppDynamicsPlatformInstallation/blob/master/assets/images/11-LicenseUsage.png" width="600">
-
-
-### Step 4: Install End User Monitoring Server
-
-In this exercise, you will be setting up the End User Monitoring (EUM) Server.  This component acts as the on-premise processor for data sent from the browser and mobile EUM agents.
-The EUM Server is not currently integrated with the Enterprise Console so the installation portion will be done from the lab host CLI.
-
-Reference documentation can be found on the AppDynamics documents site - [EUM Server Documentation](https://docs.appdynamics.com/display/latest/EUM+Server+Deployment).
-
-1. Open a New Private Window (New Incognito Window in Chrome) to avoid using cached controller credentials from previous browser sessions.
-
-2. Access the Controller [Administration Console](https://docs.appdynamics.com/display/latest/Access+the+Administration+Console) by connecting to its URL and authenticating with credentials you specified in Controller Installation wizard (Username: admin, Password: welcome1). This is a separate interface from the primary Controller UI.
-        <pre><code>
-        http://[your-ip-address]:8090/controller/admin.jsp
-        </code></pre>
-        <img src="https://github.com/sherifadel90/AppDynamicsPlatformInstallation/blob/master/assets/images/12-ControllerAdminLogin.png" width="600">
-
-2. Navigate to the Controller Setting section, and search for **appdynamics.es.eum.key** parameter
-        - Note the **Events Service Key** for later use in Step 10.
-        <img src="https://github.com/sherifadel90/AppDynamicsPlatformInstallation/blob/master/assets/images/13-EUMKey.png" width="600">
-
-3. Connect the EUM Server with the AppDynamics Controller & Events Service by updating the following parameter values in the Administration Console, clicking the **Save button after each change**
-        - eum.beacon.host = [your-ip-address]:7001 #That should be the EUM Server IP Address
-        - eum.beacon.https.host = https://[your-ip-address]:7002 #That should be the EUM Server IP Address
-        - eum.cloud.host = http://localhost:7001 #That should be the EUM Server IP Address
-        - eum.es.host = [your-ip-address]:9080 #That should be the Events Server IP Address
-        - eum.mobile.screenshot.host = [your-ip-address]:7001 #That should be the EUM Server IP Address
-
-4. Download the EUM Server Installer Script to the lab host.
-   Log into www.download.appdynamics.com to download the "EUM Server - 64-bit linux (sh)"
-
-   <img src="https://github.com/sherifadel90/AppDynamicsPlatformInstallation/blob/master/assets/images/14-EUMDownload.png" width="600">
-
-5. Copy the .sh file to your Host either using SCP on if your Desktop is MAC/Linux or using WINSCP if your Desktop is Windows
-
-6. On the Host, Make the installer script executable:
-        <pre><code>
-        chmod a+x euem-64bit-linux-20.x.x.x.sh
-        </code></pre>
-
-7. Install the Platform Admin software:
-        <pre><code>
-        sudo su
-        ./euem-64bit-linux-20.x.x.x.sh
-        </code></pre>
-    with inputing the below
-        <pre><code>
-        I accept the agreement: 1
-        Where should AppDynamics End User Monitoring be installed?: /opt/appdynamics/eum
-        Select Installation Type: 1 (Demo)
-        Database Port: 3388 (default)
-        Root User Password: welcome1 (the same as specified during the Controller Database Setup)
-        eum_user Password: AppD123
-        HTTP Port: 7001 (default)
-        HTTPS Port: 7002 (default)
-        Key Store Password: AppD123
-        </code></pre>
-    After a few minutes, you should see output similar to that shown below...
-        <pre><code>
-        Setup has finished installing AppDynamics End User Monitoring on your computer.
-        To finish setting up AppDynamics End User Monitoring Server, you must complete these post installation tasks:
-         Provision the EUM license.
-         Configure the Events Service properties and other properties in the file EUM_HOME/bin/eum.properties, then restart AppDynamics End User Monitoring Server
-         Connect the AppDynamics End User Monitoring Server with AppDynamics Controller through the Controller Administration Console.
-         For more information, see EUM Server Deployment.
-         Finishing installation ...
-        </code></pre>
-
-8. Verify the EUM Server is running by pinging the EUM Server port in a browser.  A successful “ping” response confirms it is responding properly.
-        <pre><code>
-        http://[your-ip-address]:7001/eumaggregator/ping
-        </code></pre>
-        <img src="https://github.com/sherifadel90/AppDynamicsPlatformInstallation/blob/master/assets/images/15-EUMPing.png" width="600">
-
-9. From the EUM processor directory on on the lab host (you must be in eum-processor directory for the command to run properly), provision the EUM portion of the license file:
-        <pre><code>
-        cd /opt/appdynamics/eum/eum-processor
-        ./bin/provision-license /opt/appdynamics/platform/product/controller/license.lic
-        </code></pre>
-        You should see output similar to that shown below…
-        <pre><code>
-        Reading the license file at /opt/appdynamics/platform/product/controller/license.lic
-        Successfully read the license file
-        Provisioning from license file /opt/appdynamics/platform/product/controller/license.lic
-        Register the account ...
-        AccountRegistrationResult:
-        isValid:true, isAlreadyRegistered:false, description:Successfully completed account registration, Account{accountName='test-eum-account-sherifmedhat-1601814891057', globalAccountName='bogus global account name', key='[FILTERED]', timestamp=1601826813030, lastAggregatedMin=1601826780000, accountStatus='Y', activityStatus='Y', lastActivityTimestamp=1601826813030, activityVersion='0', controllerEumApiVersion='0', controllerVersion='unknown', crMapFilesGeneration='-1', analyticAccountCreated='N', licenseTermsUpdateSourcePrecedence='0', deleted=false, deletedTime='1970-01-01T00:00:00.000Z}
-
-        EUM Account [test-eum-account-sherifmedhat-1601814891057] with key [f3b8b684-913f-4642-a5e3-709468c566dc] is registered and license terms are provisioned in the EUM PROCESSOR
-        </code></pre>
-        The Warning message above can be ignored…
-
-10. Using a text editor of your choice, configure the Events Service properties by updating the following parameter values in the eum.properties file in /opt/appdynamics/eum/eum-processor/bin/:
-        <pre><code>
-        cd /opt/appdynamics/eum/eum-processor/bin/
-        vi eum.properties
-        </code></pre>
-        and change the below:
-        <pre><code>
-        analytics.enabled=true
-        analytics.serverHost=[your-ip-address] #That should be the Events Server IP Address
-        analytics.accountAccessKey=[eum_key] (the one collected in step 2)
-        </code></pre>
-
-11. Remaining in the EUM processor directory on on the lab host (you must be in this directory for the command to run properly), restart the EUM Server by stopping the service, confirming the process is no longer running, and starting it:
-        <pre><code>
-        cd /opt/appdynamics/eum/eum-processor/
-        bin/eum.sh stop
-        ps -ef | grep -i eum | grep -v grep (no process should be listed)
-        bin/eum.sh start
-        ps -ef | grep -i eum | grep -v grep (one process should be listed)
-        </code></pre>
-
-12. In the Controller UI, confirm the EUM license has been applied by navigating to the Settings icon (⚙) in the upper right corner of the page and selecting License.  In the User Experience section of the page, the Account Name and License Key should be visible.  Additionally, the Edition should show EUM Pro or Mobile Pro for Browser Real User Monitoring and Mobile Real User Monitoring, respectively.
-<img src="https://github.com/sherifadel90/AppDynamicsPlatformInstallation/blob/master/assets/images/16-EUMLicense.png" width="600">
+        <img width="3360" height="1944" alt="09-ControllerLogin" src="https://github.com/user-attachments/assets/2f4667d2-4f2e-4321-ad15-e345acba76c0" />
 
 
 -----
@@ -289,11 +174,8 @@ Reference documentation can be found on the AppDynamics documents site - [EUM Se
         bin/eum.sh start
         </code></pre>
 
-## Next Steps
-
-Upon succesful completion of the above, please refer back to your AppDynamics Channel SE to guide you on the below:
-1. Create a Sample Application Environment
-2. Exercise to Moniitor the Sample Application by Installing AppDynamics Agents
+## Author
+ Shady Emad
 
 
 
