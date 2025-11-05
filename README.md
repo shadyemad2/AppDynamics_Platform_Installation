@@ -86,8 +86,6 @@ Reference: [Enterprise Console Documentation](https://docs.appdynamics.com/appd/
    chmod a+x platform-setup-x64-linux-20.x.x.x.sh
    ```
 
-   <img width="999" height="552" alt="run script on cli" src="https://github.com/user-attachments/assets/093d962c-8e4e-4fcf-a6b1-a00a9fa06737" />
-
 4. Install the Platform Admin software:
    ```bash
    sudo su
