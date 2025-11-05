@@ -4,7 +4,7 @@
 
 This lab guides you through the process of installing and configuring the AppDynamics platform components for an on-premise deployment.  The architecture diagram below shows these components with their communication paths and payloads.
 
-<img src="https://github.com/sherifadel90/AppDynamicsPlatformInstallation/blob/master/assets/images/00-onpremise-diagram.png" width="600">
+<img width="2163" height="1515" alt="image" src="https://github.com/user-attachments/assets/e4370117-b906-4fa4-a42d-14c3baf48d80" />
 
 In this Lab for simplicity we will install all AppDynamics Components (Enterprise Console, Controller, Events Service, End User Monitoring Server) on a Standalone Virtual Machine.
 
@@ -22,18 +22,14 @@ The software versions used in the lab are the most recent generally available at
 
 - **Operating System:** Linux or Windows  (This Guide  is based on Linux OS, CentOs7 Distribution)
 - **Linux Distribution:** Any from the below list (This Guide is based on CentOS7)
-![SupportedOperatingSystems](assets/images/00-Supported-OperatingSystems.png)
 - **CPU:** 4 Cores (Minimum)
 - **Memory:** 16 GB RAM (Minimum), 32 GB RAM (Recommended)
 - **Storage:** 100 GB (Minimum)
 
-Reference: [Controller Sizing Requirements](https://docs.appdynamics.com/display/latest/Controller+System+Requirements)
 
 ### Step 2: Enterprise Console Requirements
 
 The Enterprise Console can run on the same host as the Controller and the embedded Events Service. If this is the case, the machine you choose to run the Enterprise Console must meet the requirements for all the components that run on that machine.
-
-Reference documentation can be found on the AppDynamics documents site - [Enterprise Console Requirements](https://docs.appdynamics.com/display/latest/Enterprise+Console+Requirements).
 
 1. We will need to install these required libraries
         <pre><code>
@@ -42,7 +38,8 @@ Reference documentation can be found on the AppDynamics documents site - [Enterp
         yum install tzdata
         yum install ncurses-libs-5.x
         </code></pre>
-        Note: the above required libraries are based on Red Hat and CentOS, for other Distros, please refer to [Enterprise Console Requirements](https://docs.appdynamics.com/display/latest/Enterprise+Console+Requirements).
+        Note: the above required libraries are based on Red Hat and CentOS, for other Distros, please refer to [Enterprise Console Requirements]
+        (https://docs.appdynamics.com/appd/onprem/24.x/24.4/en/enterprise-console/enterprise-console-requirements).
 
 2.  AppDynamics requires the following hard and soft per-user limits in Linux:
     * Open file descriptor limit (nofile): 65535
