@@ -30,7 +30,7 @@ The software versions used in the lab are the most recent generally available at
 ### Step 2: Enterprise Console Requirements
 
 The Enterprise Console can run on the same host as the Controller and the embedded Events Service. If this is the case, the machine you choose to run the Enterprise Console must meet the requirements for all the components that run on that machine.
-1. we wiil need to install Java
+1. we will need to install Java
         <pre><code>
         yum install java-17-openjdk java-17-openjdk-devel -y
         <pre><code>
