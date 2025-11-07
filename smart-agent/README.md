@@ -28,101 +28,30 @@
 | Apache Web Server | CentOS 8 and 9<br>RHEL 8 and 9<br>Ubuntu 22.04 and 20.04 |
 
 
-1. Install Java:
-   ```bash
-   yum install java-17-openjdk java-17-openjdk-devel -y
-   ```
-
-2. Install the required libraries:
-   ```bash
-   yum install libaio -y
-   yum install numactl -y
-   yum install tzdata -y
-   yum install ncurses-libs-5.x -y
-   ```
-
-   > Note: The above required libraries are based on Red Hat and CentOS, for other distros refer to [Enterprise Console Requirements](https://docs.appdynamics.com/appd/onprem/24.x/24.4/en/enterprise-console/enterprise-console-requirements).
-
-3. AppDynamics requires the following hard and soft per-user limits in Linux:
-
-   - Open file descriptor limit (nofile): 65535  
-   - Process limit (nproc): 65535  
-
-   Configure limits:
-   ```bash
-   vi /etc/security/limits.d/appdynamics.conf
-   ```
-
-   Add the following:
-   ```
-   * hard nofile 65535
-   * soft nofile 65535
-   * hard nproc 65535
-   * soft nproc 65535
-   ```
-
-   Then logout and login again.
-
 ---
 
-### Step 3: Install Enterprise Console (aka Platform Admin)
-The Enterprise Console provides a browser-based UI to install and manage the Controller and Events Service.  
-A CLI version exists but is out of scope for this lab.  
-Reference: [Enterprise Console Documentation](https://docs.appdynamics.com/appd/onprem/24.x/24.4/en/enterprise-console)
+### Install Smart Agent
 
-1. Download and copy the Platform Admin Installer Script from your AppDynamics account.  
-   Log into https://accounts.appdynamics.com and download **Enterprise Console - 64-bit Linux (sh)**.
+1. Download and Unzip the the appdsmartagent_<version>.tar.gz file 
+   <img width="975" height="408" alt="image" src="https://github.com/user-attachments/assets/bed65aff-98fa-4d41-86c4-f8b67fec16f9" />
 
-   ![EnterpirseConsoleDownload](assets/images/01-EnterpriseConsoleDownload.png)
+   <img width="665" height="86" alt="image" src="https://github.com/user-attachments/assets/7622126f-9fd1-49d7-83e3-1939e485487b" />
 
-2. Copy the `.sh` file to your host using `scp` (Linux/Mac) or `WinSCP` (Windows).
+2. Configure Smart Agent.
+   Edit /opt/appdynamics/appdsmartagent/config.ini and add ControllerURL, AccountName, AccountAccessKey, ControllerPort information
+   <img width="680" height="418" alt="image" src="https://github.com/user-attachments/assets/587fb13f-d3f2-4f45-9fe6-1d0cc1f4f38b" />
 
-3. Make the installer executable:
+3. Start the Smart Agent.
    ```bash
-   chmod a+x platform-setup-x64-linux-20.x.x.x.sh
+   ./smartagent
    ```
+   <img width="756" height="425" alt="image" src="https://github.com/user-attachments/assets/d9c1714a-b889-4cff-8759-03a776418bb4" />
 
-4. Install the Platform Admin software:
-   ```bash
-   sudo su
-   ./platform-setup-x64-linux-20.x.x.x.sh
-   ```
+4. From Controller UI, navigate to Home > Agent Management > Manage Agents to start managing your agents
 
-   step 1  
-   <img width="1967" height="908" alt="enterprise 1" src="https://github.com/user-attachments/assets/13f9d154-058d-4555-b0e3-e879fd20fbe2" />  
-   step 2  
-   <img width="997" height="912" alt="enterprise 2" src="https://github.com/user-attachments/assets/95c1d9b3-a059-4669-957d-6ce1911e5504" />  
-   step 3  
-   <img width="1000" height="905" alt="enterprise 3" src="https://github.com/user-attachments/assets/4503519f-deec-4715-ab45-9da8dade287d" />  
-   step 4  
-   <img width="996" height="896" alt="enterprise 4" src="https://github.com/user-attachments/assets/bdf6f38d-8f30-442a-92ea-0fb8541f051c" />  
-   step 5  
-   <img width="1002" height="906" alt="enterprise 5" src="https://github.com/user-attachments/assets/f38a5f6e-cb36-4ddf-8a32-3dac0fa0b97f" />  
-   step 6  
-   <img width="998" height="908" alt="enterprise 6" src="https://github.com/user-attachments/assets/162a8adc-607a-4b08-8ca5-cb9512c18853" />  
-   step 7  
-   <img width="998" height="904" alt="enterprise 7" src="https://github.com/user-attachments/assets/eb7f73fe-33b9-4230-8777-58cc21f8ba4b" />  
-   step 8  
-   <img width="992" height="901" alt="enterprise 8" src="https://github.com/user-attachments/assets/97a76d6d-2ec0-40b3-beb6-ba88dd7afa18" />  
-
-   After a few minutes, you should see:
-   ```bash
-   Setup has finished installing AppDynamics Enterprise Console on your computer.
-   To install and manage your AppDynamics Platform, use the Enterprise Console CLI from
-   /opt/appdynamics/platform/platform-admin/bin directory.
-   Finishing installation ...
-   ```
-
-5. Verify Enterprise Console via web browser:
-   ```
-   http://[your-ip-address]:[EnterpriseConsolePort]
-   ```
-   Login:
-   - Username: admin  
-   - Password: shadyemad  
-
-   <img width="3360" height="1952" alt="02-EnterpriseConsoleLogin" src="https://github.com/user-attachments/assets/d7670394-c048-47fe-8e54-ad05947850b2" />
-
+   <img width="952" height="438" alt="image" src="https://github.com/user-attachments/assets/021f8084-1321-4554-9d92-7fc1736da6f5" />
+   the detailes of the smart agent:
+   <img width="542" height="339" alt="image" src="https://github.com/user-attachments/assets/bcc19725-f804-479d-b16c-6f12fd87d97d" />
 
 ---
 
@@ -180,3 +109,4 @@ bin/eum.sh start
 
 ## Author
 **Shady Emad**
+
