@@ -33,19 +33,20 @@
 ### Install Smart Agent
 
 1. Download and Unzip the the appdsmartagent_<version>.tar.gz file 
-   <img width="975" height="408" alt="image" src="https://github.com/user-attachments/assets/bed65aff-98fa-4d41-86c4-f8b67fec16f9" />
+   <img width="1920" height="791" alt="1" src="https://github.com/user-attachments/assets/b2c95140-6dd2-43e5-953a-cf99d56e778c" />
+   <img width="1240" height="209" alt="2" src="https://github.com/user-attachments/assets/a314db12-a7e4-4611-b962-4b2a7dc66cde" />
 
-   <img width="665" height="86" alt="image" src="https://github.com/user-attachments/assets/7622126f-9fd1-49d7-83e3-1939e485487b" />
 
 2. Configure Smart Agent.
    Edit /opt/appdynamics/appdsmartagent/config.ini and add ControllerURL, AccountName, AccountAccessKey, ControllerPort information
-   <img width="680" height="418" alt="image" src="https://github.com/user-attachments/assets/587fb13f-d3f2-4f45-9fe6-1d0cc1f4f38b" />
+   <img width="1380" height="716" alt="3" src="https://github.com/user-attachments/assets/2cf3e400-f2f4-43d7-8dcc-513c6ad1742e" />
 
 3. Start the Smart Agent.
    ```bash
    ./smartagent
    ```
-   <img width="756" height="425" alt="image" src="https://github.com/user-attachments/assets/d9c1714a-b889-4cff-8759-03a776418bb4" />
+   <img width="1515" height="681" alt="4" src="https://github.com/user-attachments/assets/7e40f0f1-2d7f-4521-b0aa-eaacf3e6a7ce" />
+
 
 4. From Controller UI, navigate to Home > Agent Management > Manage Agents to start managing your agents
 
@@ -109,4 +110,5 @@ bin/eum.sh start
 
 ## Author
 **Shady Emad**
+
 
