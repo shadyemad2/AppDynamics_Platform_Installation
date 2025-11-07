@@ -50,25 +50,58 @@
 
 4. From Controller UI, navigate to Home > Agent Management > Manage Agents to start managing your agents
 
-   <img width="952" height="438" alt="image" src="https://github.com/user-attachments/assets/021f8084-1321-4554-9d92-7fc1736da6f5" />
+   <img width="1877" height="861" alt="5" src="https://github.com/user-attachments/assets/d0157575-7017-4abd-a4ab-5c7b0a018820" />
    the detailes of the smart agent:
-   <img width="542" height="339" alt="image" src="https://github.com/user-attachments/assets/bcc19725-f804-479d-b16c-6f12fd87d97d" />
+   <img width="1066" height="637" alt="6" src="https://github.com/user-attachments/assets/cbe18472-d6d8-4abd-84bf-6e9cd403e864" />
+
 
 ---
 
-### Step 4: Install AppDynamics Controller & Events Service
-From the Enterprise Console UI, you will install both the Controller and Events Service.
+### Auto-Attach Agents to Applications
+Smart Agent provides the auto-attach feature to auto instrument a Java application with Java Agent or a NodeJS application with NodeJS Agent. This feature is used to detect and start the supported Splunk AppDynamics agents without modifying the start configuration of the applications. You can use Smart Agent Command Line Utility for additional configuration.
 
-1. From the **Install** tab, click **Express Install**.  
-   <img width="1516" height="810" alt="install platform 3" src="https://github.com/user-attachments/assets/82d9404f-5467-4395-89b6-e68865058620" />
+1. Start smart agent and check that is running  
+   <img width="561" height="189" alt="7" src="https://github.com/user-attachments/assets/8f352eae-b11e-406f-add0-973061e023bb" />
 
-2. In the **Name the Platform** section, provide a name and confirm the **Installation Path**.  
-   <img width="1516" height="813" alt="install platform 1" src="https://github.com/user-attachments/assets/5c192976-0309-4650-9393-d362df719b02" />
+2. Customize Auto-Attach Configuration
+   You can overwrite the default ld_preload.json (attaches the agent to all supported Java frameworks and NodeJS applications) and add your own with your updated     rules. The default location for ld_preload.json is /etc/opt/appdynamics/ld_preload.json.
+   
+   <img width="1222" height="259" alt="8" src="https://github.com/user-attachments/assets/ac16ec4e-7ad3-47fb-a0dd-24f2fa62eba8" />
+   <img width="985" height="754" alt="9" src="https://github.com/user-attachments/assets/b2e316eb-1533-4130-becc-160ef14b20d3" />
 
-3. In the **Add a Host** section, choose **Use Enterprise Console Host**.  
+   > **Note: What is `ld_preload.json`**
+>
+> - A configuration file for **AppDynamics Smart Agent Auto-Attach**.  
+> - It tells Smart Agent which **Java** or **NodeJS** processes to attach agents to automatically, without modifying JVM or NodeJS startup commands.
+>
+> **Structure:**
+> ```json
+> {
+>   "java": [ ... ],
+>   "nodejs": [ ... ]
+> }
+> ```
+> - `"java"`: rules for Java processes.  
+> - `"nodejs"`: rules for NodeJS processes.  
+>
+> Each rule can contain:
+>
+> | Field       | Description |
+> |------------|-------------|
+> | `pattern`  | Regex to match process name. Example: `.*MyApp.*` |
+> | `agentPath` | Path to the agent JAR (Java) or JS (NodeJS). Example: `/opt/appdynamics/smartagent/agents/java/java-agent/javaagent.jar` |
+> | `properties` (optional, Java only) | Defines `appName`, `tierName`, `nodeName` to show in Controller |
+>
+> **How it works:**
+> 1. Smart Agent reads the file at **startup**.  
+> 2. Matches running processes using `"pattern"`.  
+
+
+
+4. In the **Add a Host** section, choose **Use Enterprise Console Host**.  
    <img width="1515" height="814" alt="install platform 2" src="https://github.com/user-attachments/assets/a658bc35-0037-41f2-b4d1-453b66376b9b" />
 
-4. In the **Install the Controller** section:
+5. In the **Install the Controller** section:
    - Select the **Demo profile**
    - Set **Controller Admin Username** = `admin`
    - Set **Controller Admin Password** = `welcome1`
@@ -76,12 +109,12 @@ From the Enterprise Console UI, you will install both the Controller and Events 
    - Set **Database Root Password** = `welcome1`
    <img width="1513" height="811" alt="install platform 4 1" src="https://github.com/user-attachments/assets/fe6edb88-4d13-4117-8c78-49f058a41256" />
 
-5. Click **Submit**, and wait for the jobs to complete (may take up to 15 minutes).
+6. Click **Submit**, and wait for the jobs to complete (may take up to 15 minutes).
 
-6. When done, ensure both Controller and Events Service show a health state of **Normal**.  
+7. When done, ensure both Controller and Events Service show a health state of **Normal**.  
    <img width="1513" height="815" alt="running jobs" src="https://github.com/user-attachments/assets/21d4afcb-a434-4bd0-9ec5-fcd098a85a5a" />
 
-7. Verify Controller via browser:
+8. Verify Controller via browser:
    ```
    http://[your-ip-address]:8090
    ```
@@ -110,5 +143,6 @@ bin/eum.sh start
 
 ## Author
 **Shady Emad**
+
 
 
