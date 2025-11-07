@@ -98,51 +98,31 @@ Smart Agent provides the auto-attach feature to auto instrument a Java applicati
 
 
 
-4. In the **Add a Host** section, choose **Use Enterprise Console Host**.  
-   <img width="1515" height="814" alt="install platform 2" src="https://github.com/user-attachments/assets/a658bc35-0037-41f2-b4d1-453b66376b9b" />
+3. Make The Policy for Auto Attach.  
+   <img width="1726" height="686" alt="10" src="https://github.com/user-attachments/assets/ce1eb1e1-b98d-4b6c-89c7-88d1dc2b7fc0" />
 
-5. In the **Install the Controller** section:
-   - Select the **Demo profile**
-   - Set **Controller Admin Username** = `admin`
-   - Set **Controller Admin Password** = `welcome1`
-   - Set **Controller Root User Password** = `welcome1`
-   - Set **Database Root Password** = `welcome1`
-   <img width="1513" height="811" alt="install platform 4 1" src="https://github.com/user-attachments/assets/fe6edb88-4d13-4117-8c78-49f058a41256" />
 
-6. Click **Submit**, and wait for the jobs to complete (may take up to 15 minutes).
+4. Statrt thr tomcaton:
+   <img width="1320" height="369" alt="11" src="https://github.com/user-attachments/assets/a7d31819-31df-4816-bf16-019bee46de38" />
+   <img width="1508" height="854" alt="12" src="https://github.com/user-attachments/assets/960522dc-c84d-46ca-a339-be3b3612226d" />
 
-7. When done, ensure both Controller and Events Service show a health state of **Normal**.  
-   <img width="1513" height="815" alt="running jobs" src="https://github.com/user-attachments/assets/21d4afcb-a434-4bd0-9ec5-fcd098a85a5a" />
 
-8. Verify Controller via browser:
+5. Check Smart Agent Logs
+    ```bash
+   tail -f /opt/appdynamics/smartagent/logs/machine-agent.log
    ```
-   http://[your-ip-address]:8090
-   ```
-   Login:
-   - Username: admin  
-   - Password: welcome1  
+    <img width="1519" height="540" alt="13" src="https://github.com/user-attachments/assets/5a75ac40-1e6d-4a17-9ade-d41aa4abe179" />
 
-   <img width="3360" height="1944" alt="09-ControllerLogin" src="https://github.com/user-attachments/assets/2f4667d2-4f2e-4321-ad15-e345acba76c0" />
+    processes:
+    <img width="1719" height="680" alt="14" src="https://github.com/user-attachments/assets/4dac2389-73a0-4498-b609-10323355f8fe" />
 
----
 
-## Notes
-In case of a server restart, you can start all services via CLI:
-```bash
-cd /opt/appdynamics/platform/platform-admin
-bin/platform-admin.sh start-platform-admin
-bin/platform-admin.sh start-controller-db
-bin/platform-admin.sh start-controller-appserver
-bin/platform-admin.sh submit-job --platform-name AppDPlatform --service events-service --job start
-
-cd /opt/appdynamics/eum/eum-processor/
-bin/eum.sh start
-```
 
 ---
 
 ## Author
 **Shady Emad**
+
 
 
 
