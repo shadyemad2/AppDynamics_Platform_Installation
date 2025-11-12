@@ -97,16 +97,12 @@ Reference: [Enterprise Console Documentation](https://docs.appdynamics.com/appd/
    step 2  
    <img width="997" height="912" alt="enterprise 2" src="https://github.com/user-attachments/assets/95c1d9b3-a059-4669-957d-6ce1911e5504" />  
    step 3  
-   <img width="1000" height="905" alt="enterprise 3" src="https://github.com/user-attachments/assets/4503519f-deec-4715-ab45-9da8dade287d" />  
-   step 4  
-   <img width="996" height="896" alt="enterprise 4" src="https://github.com/user-attachments/assets/bdf6f38d-8f30-442a-92ea-0fb8541f051c" />  
-   step 5  
-   <img width="1002" height="906" alt="enterprise 5" src="https://github.com/user-attachments/assets/f38a5f6e-cb36-4ddf-8a32-3dac0fa0b97f" />  
-   step 6  
+   <img width="1000" height="905" alt="enterprise 3" src="https://github.com/user-attachments/assets/4503519f-deec-4715-ab45-9da8dade287d" />   
+   step 4 
    <img width="998" height="908" alt="enterprise 6" src="https://github.com/user-attachments/assets/162a8adc-607a-4b08-8ca5-cb9512c18853" />  
-   step 7  
+   step 5 
    <img width="998" height="904" alt="enterprise 7" src="https://github.com/user-attachments/assets/eb7f73fe-33b9-4230-8777-58cc21f8ba4b" />  
-   step 8  
+   step 6  
    <img width="992" height="901" alt="enterprise 8" src="https://github.com/user-attachments/assets/97a76d6d-2ec0-40b3-beb6-ba88dd7afa18" />  
 
    After a few minutes, you should see:
