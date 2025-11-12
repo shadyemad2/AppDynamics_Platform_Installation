@@ -157,7 +157,7 @@ From the Enterprise Console UI, you will install both the Controller and Events 
    ```
    Login:
    - Username: admin  
-   - Password: welcome1  
+   - Password: shadyemad 
 
    <img width="3360" height="1944" alt="09-ControllerLogin" src="https://github.com/user-attachments/assets/2f4667d2-4f2e-4321-ad15-e345acba76c0" />
 
