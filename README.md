@@ -115,7 +115,7 @@ Reference: [Enterprise Console Documentation](https://docs.appdynamics.com/appd/
 
 5. Verify Enterprise Console via web browser:
    ```
-   http://[your-ip-address]:[EnterpriseConsolePort]
+   http://[your-ip-address]:[EnterpriseConsolePort] 8091
    ```
    Login:
    - Username: admin  
