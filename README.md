@@ -141,9 +141,9 @@ From the Enterprise Console UI, you will install both the Controller and Events 
 4. In the **Install the Controller** section:
    - Select the **Demo profile**
    - Set **Controller Admin Username** = `admin`
-   - Set **Controller Admin Password** = `welcome1`
-   - Set **Controller Root User Password** = `welcome1`
-   - Set **Database Root Password** = `welcome1`
+   - Set **Controller Admin Password** = `shadymad`
+   - Set **Controller Root User Password** = `shadyemad`
+   - Set **Database Root Password** = `shadyemad`
    <img width="1513" height="811" alt="install platform 4 1" src="https://github.com/user-attachments/assets/fe6edb88-4d13-4117-8c78-49f058a41256" />
 
 5. Click **Submit**, and wait for the jobs to complete (may take up to 15 minutes).
